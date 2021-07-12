@@ -1,0 +1,33 @@
+.footer-main {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: #ffff;
+  border-top: 1px solid #383838;
+}
+
+.footer-main div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-main div p {
+  line-height: 3rem;
+}
+
+@media (max-width: 1090px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-main div {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer-main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

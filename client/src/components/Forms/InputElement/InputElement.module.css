@@ -1,0 +1,22 @@
+.input-element-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-element-main input {
+  width: 100%;
+  color: #ffff;
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  background-color: #353535c9;
+  border-radius: 5px;
+}
+
+.input-error {
+  height: 1.4rem;
+}
+
+.input-element-main small {
+  color: #ffff;
+}

@@ -1,0 +1,8 @@
+{
+    "env": {
+        "DB_USER": "adar",
+        "DB_PASSWORD": "239738416",
+        "DB_NAME": "netflix",
+        "JWT_SECRET": "secret_token"
+    }
+}

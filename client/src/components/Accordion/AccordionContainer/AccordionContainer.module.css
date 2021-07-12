@@ -1,0 +1,29 @@
+.accordion-main {
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 45rem;
+  color: #ffff;
+}
+
+.accordion-main h1 {
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 1090px) {
+  .accordion-main {
+    width: 35rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .accordion-main {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .accordion-main {
+    width: 18rem;
+  }
+}

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+body {
+  margin: auto;
+  width: 68rem;
+  background-color: #000000;
+}
+
+@media (max-width: 1090px) {
+  body {
+    width: 45rem;
+  }
+}
+
+@media (max-width: 750px) {
+  body {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    width: 100%;
+  }
+}

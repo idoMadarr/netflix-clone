@@ -1,0 +1,38 @@
+.jumbo-main {
+  padding: 0 8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid #383838;
+}
+
+.jumbo-main div {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffff;
+}
+
+.jumbo-main div h2::first-letter {
+  color: #a80505;
+}
+
+.jumbo-main img {
+  width: 14rem;
+  height: auto;
+}
+
+@media (max-width: 1090px) {
+  .jumbo-main {
+    padding: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .jumbo-main div {
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,25 @@
+.accordion-item {
+  margin: 2px;
+  padding: 1rem;
+  background-color: #383a3a;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+}
+
+.accordion-body-show {
+  height: auto;
+  overflow: hidden;
+  max-height: 999px;
+  transition: all 0.6s ease-in-out;
+}
