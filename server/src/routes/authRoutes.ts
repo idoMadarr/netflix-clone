@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { signUp, signIn, emailCheck } from '../controllers/authController';
 import { body } from 'express-validator';
+import { signUp, signIn, emailCheck } from '../controllers/authController';
 
 const route = Router();
 

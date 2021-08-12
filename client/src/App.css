@@ -8,23 +8,23 @@
 
 body {
   margin: auto;
-  width: 68rem;
+  width: 82rem;
   background-color: #000000;
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 1340px) {
   body {
-    width: 45rem;
+    width: 65rem;
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1110px) {
   body {
-    width: 25rem;
+    width: 48rem;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 785px) {
   body {
     width: 100%;
   }

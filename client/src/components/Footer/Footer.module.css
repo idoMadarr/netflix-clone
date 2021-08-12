@@ -16,7 +16,7 @@
   line-height: 3rem;
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 1340px) {
   .footer-main {
     grid-template-columns: repeat(2, 1fr);
   }

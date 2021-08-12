@@ -1,19 +1,16 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+
+import Header from '../Header/Header';
 
 import style from './HomeContainer.module.css';
-import Logo from './logo.svg';
 
-const HeaderContainer = ({ children, history }) => {
+const HeaderContainer = ({ children }) => {
   return (
     <div className={style['header-main']}>
-      <div className={style['neflix-nav']}>
-        <img src={Logo} alt={'logo'} onClick={() => history.push('/')} />
-        <Link to={'/sign-in'}>Sgin In</Link>
-      </div>
+      <Header />
       {children}
     </div>
   );
 };
 
-export default withRouter(HeaderContainer);
+export default HeaderContainer;

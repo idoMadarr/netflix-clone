@@ -23,18 +23,14 @@ const signUp = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
+    const { username, email, password } = req.body;
     try {
-        const { username, email, password } = req.body;
-        const userExist = yield User_1.default.findOne({ email });
-        if (userExist) {
-            return res.status(401).json({ message: notes_1.SIGN_UP_FAILED });
-        }
         const hashPassword = yield bcryptjs_1.hash(password, 12);
         const newUser = yield new User_1.default({ username, email, password: hashPassword });
         yield newUser.save();
         const payload = { id: newUser._id };
         const token = jsonwebtoken_1.sign(payload, process.env.JWT_SECRET);
-        res.status(200).json(token);
+        res.status(200).json({ token, username });
     }
     catch (error) {
         next(error);
@@ -58,7 +54,7 @@ const signIn = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
         }
         const payload = { id: userExist._id };
         const token = jsonwebtoken_1.sign(payload, process.env.JWT_SECRET);
-        res.status(200).json(token);
+        res.status(200).json({ token, username: userExist.username });
     }
     catch (error) {
         next(error);
@@ -70,9 +66,9 @@ const emailCheck = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     try {
         const userExist = yield User_1.default.findOne({ email });
         if (userExist) {
-            return res.status(401).json({ message: notes_1.SIGN_IN_FAILED });
+            return res.status(401).json(true);
         }
-        res.status(200).json(true);
+        res.status(200).json(false);
     }
     catch (error) {
         next(error);

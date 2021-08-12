@@ -1,0 +1,15 @@
+.slide-main {
+  display: flex;
+  margin: 2px 0;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  color: #ffffff;
+  background-color: #464646e1;
+  cursor: pointer;
+  border: none;
+}
+
+.slide-main:hover {
+  background-color: #575757;
+}

@@ -12,6 +12,7 @@ import thunk from 'redux-thunk';
 
 // Reducers
 import authReducer from './store/reducers/authReducer';
+import favoriteReducer from './store/reducers/FavoriteReducer';
 
 // Redux Devtool
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -19,6 +20,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Root Reducer
 const rootReducer = combineReducers({
   authReducer,
+  favoriteReducer,
 });
 
 const store = createStore(

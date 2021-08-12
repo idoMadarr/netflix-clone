@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "icon": "/images/users/1.png"
+    },
+    {
+        "id": 2,
+        "icon": "/images/users/2.png"
+    },
+    {
+        "id": 3,
+        "icon": "/images/users/3.png"
+    }
+
+]

@@ -1,0 +1,60 @@
+.deck-details {
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: auto;
+}
+
+.deck-details small:nth-of-type(1) {
+  height: 1rem;
+  color: #bbbbbb;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.deck-details button {
+  width: 5rem;
+  height: 2.4rem;
+  margin: 0.5rem 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #a80505;
+}
+
+.remove-btn {
+  background-color: #464646e1;
+}
+
+.add-btn:hover {
+  background-color: #bb0c0c;
+}
+
+.remove-btn:hover {
+  background-color: #575757;
+}
+
+.deck-details small {
+  color: #fff;
+}
+
+@media (max-width: 1110px) {
+  .deck-details button {
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 785px) {
+  .deck-details {
+    padding: 0 0.5rem;
+    height: auto;
+  }
+
+  .deck-details small {
+    text-align: center;
+  }
+}

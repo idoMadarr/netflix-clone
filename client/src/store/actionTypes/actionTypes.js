@@ -1,0 +1,16 @@
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_UP = 'SIGN_UP';
+export const LOGOUT = 'LOGOUT';
+export const RESTART_CREDENTIALS = 'RESTART_CREDENTIALS';
+export const EMAIL_VALIDITY = 'EMAIL_VALIDITY';
+export const SIGN_ERROR = 'SIGN_ERROR';
+export const SPINNER = 'SPINNER';
+
+export const FETCH_FAVORITES = 'FETCH_FAVORITES';
+export const NO_FAVORITES = 'NO_FAVORITES';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
+export const REMOVE_FAVORITE_FAIL = 'REMOVE_FAVORITE_FAIL';
+export const ADD_FAVORITE_FAIL = 'ADD_FAVORITE_FAIL';
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
+export const SPINNER_WHITE = 'SPINNER_WHITE';

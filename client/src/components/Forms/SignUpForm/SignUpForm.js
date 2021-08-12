@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { signUp } from '../../../store/actions/authActions';
+
 import InputElement from '../InputElement/InputElement';
+import Spinner from '../../UIElements/Spinner/Spinner';
 
 import style from './SignUpForm.module.css';
 
-const SignUpForm = () => {
+const SignUpForm = ({ history }) => {
+  const emailSign = useSelector((state) => state.authReducer.emailSign);
+  const isLoading = useSelector((state) => state.authReducer.isLoading);
+
   const [formState, setFormState] = useState({
     username: '',
-    email: '',
+    email: emailSign,
     password: '',
     confirm: '',
   });
@@ -17,7 +22,6 @@ const SignUpForm = () => {
 
   const [errorState, setErrorState] = useState({
     usernameErr: '',
-    emailErr: '',
     passwordErr: '',
     confirmErr: '',
   });
@@ -29,29 +33,26 @@ const SignUpForm = () => {
     event.preventDefault();
     const isValid = validator();
     if (isValid) {
-      dispatch(signUp(formState));
+      dispatch(signUp(formState, history));
     }
   };
 
   const validator = () => {
     let usernameErr = null;
-    let emailErr = null;
     let passwordErr = null;
     let confirmErr = null;
 
     if (username.trim() === '') usernameErr = 'Username is required';
-    if (!email.includes('@')) emailErr = 'Valid email is required';
     if (password.length < 6 || password.length > 9)
       passwordErr = 'Password must be between 6 to 9 characters';
     if (confirm !== password || confirm.trim() === '')
       confirmErr = 'Please valid your password';
 
-    if (usernameErr || emailErr || passwordErr || confirmErr) {
+    if (usernameErr || passwordErr || confirmErr) {
       setErrorState((prevState) => {
         return {
           ...prevState,
           usernameErr,
-          emailErr,
           passwordErr,
           confirmErr,
         };
@@ -122,7 +123,7 @@ const SignUpForm = () => {
             error={input.error}
           />
         ))}
-        <button type={'submit'}>Sgin Up</button>
+        <button type={'submit'}>{isLoading ? <Spinner /> : 'Sign Up'}</button>
       </form>
       <div className={style['sign-up-footer']}>
         <small>

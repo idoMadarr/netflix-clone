@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SIGN_UP_FAILED = exports.SIGN_IN_FAILED = void 0;
+exports.NO_SLIDES = exports.FAVORITE_FAIL = exports.FAVORITE_SUCCESS = exports.SIGN_IN_FAILED = void 0;
 // Auth Notes:
-exports.SIGN_IN_FAILED = 'Sign in failed: Please check your email and password and try again';
-exports.SIGN_UP_FAILED = 'User already exists';
-// Express-validator Notes:
+exports.SIGN_IN_FAILED = 'Sign in failed: Please check your email and password';
+exports.FAVORITE_SUCCESS = 'Added to your favorites';
+exports.FAVORITE_FAIL = 'Already in your favorites';
+exports.NO_SLIDES = 'No Slides to Show';

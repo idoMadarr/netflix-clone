@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import style from './InputElement.module.css';
 
@@ -9,7 +11,11 @@ const InputElement = ({
   name,
   insertFunc,
   error,
+  location,
 }) => {
+  const path = location.pathname;
+  const emailSign = useSelector((state) => state.authReducer.emailSign);
+
   return (
     <div className={style['input-element-main']}>
       <input
@@ -18,6 +24,11 @@ const InputElement = ({
         placeholder={holder}
         name={name}
         onChange={insertFunc}
+        readOnly={
+          inputType === 'email' && path === '/sign-up' && emailSign !== ''
+            ? true
+            : false
+        }
       />
       <div className={style['input-error']}>
         <small>{error || null}</small>
@@ -26,4 +37,4 @@ const InputElement = ({
   );
 };
 
-export default InputElement;
+export default withRouter(InputElement);

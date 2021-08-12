@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { signIn } from '../../../store/actions/authActions';
+
 import InputElement from '../InputElement/InputElement';
+import Spinner from '../../UIElements/Spinner/Spinner';
 
 import style from './SignInForm.module.css';
 
-const SignInForm = () => {
+const SignInForm = ({ history }) => {
+  const emailSign = useSelector((state) => state.authReducer.emailSign);
+  const message = useSelector((state) => state.authReducer.message);
+  const isLoading = useSelector((state) => state.authReducer.isLoading);
+
   const [formState, setFormState] = useState({
-    email: '',
+    email: emailSign || '',
     password: '',
     rememberMe: false,
   });
@@ -26,7 +32,7 @@ const SignInForm = () => {
     event.preventDefault();
     const isValid = validator();
     if (isValid) {
-      dispatch(signIn(formState));
+      dispatch(signIn(formState, history));
     }
   };
 
@@ -96,7 +102,7 @@ const SignInForm = () => {
             error={input.error}
           />
         ))}
-        <button type={'submit'}>Sgin In</button>
+        <button type={'submit'}>{isLoading ? <Spinner /> : 'Sign In'}</button>
         <div className={style['sign-in-remember']}>
           <div>
             <input
@@ -112,6 +118,9 @@ const SignInForm = () => {
           <small>Need help?</small>
         </div>
       </form>
+      <div className={style['error-message']}>
+        <small>{message}</small>
+      </div>
       <div className={style['sign-in-footer']}>
         <small>
           New to Netflix? <Link to={'/'}>Sign up now</Link>
@@ -124,4 +133,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default withRouter(SignInForm);

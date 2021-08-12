@@ -1,9 +1,11 @@
 .home-content {
+  margin: 0 auto;
+  width: 95%;
   height: 30rem;
   padding: 4rem;
 }
 
-.home-content div:nth-child(1) {
+.home-content-main {
   height: 20rem;
   display: flex;
   flex-direction: column;
@@ -19,8 +21,10 @@
 }
 
 .header-search-bar {
-  width: auto;
+  display: flex;
+  width: 20rem;
   height: 2.4rem;
+  overflow: hidden;
 }
 
 .header-search-bar input {
@@ -28,6 +32,10 @@
   width: 14rem;
   outline: none;
   padding: 1rem;
+}
+
+.err {
+  border: 2px solid salmon;
 }
 
 .header-search-bar button {
@@ -49,18 +57,18 @@
   color: #ffff;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1340px) {
   .home-content {
     padding: 2rem;
   }
 
   .header-search-bar {
     height: 4.8rem;
-    display: flex;
     flex-direction: column;
   }
 
   .header-search-bar input {
+    width: 100%;
     height: 2.4rem;
   }
 

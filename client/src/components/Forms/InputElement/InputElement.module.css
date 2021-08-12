@@ -13,6 +13,10 @@
   border-radius: 5px;
 }
 
+.input-element-main input[type='email'] {
+  color: #808080;
+}
+
 .input-error {
   height: 1.4rem;
 }

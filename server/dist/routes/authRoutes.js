@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const authController_1 = require("../controllers/authController");
 const express_validator_1 = require("express-validator");
+const authController_1 = require("../controllers/authController");
 const route = express_1.Router();
 // Url: http://localhost:5000/auth/sign-up
 // Method: POST

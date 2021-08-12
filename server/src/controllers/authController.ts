@@ -5,7 +5,7 @@ import { hash, compare } from 'bcryptjs';
 
 import User from '../schemes/User';
 import { UserModel } from '../models/UserModel';
-import { SIGN_UP_FAILED, SIGN_IN_FAILED } from '../notes/notes';
+import { SIGN_IN_FAILED } from '../notes/notes';
 
 export const signUp: RequestHandler = async (req, res, next) => {
     const errors = validationResult(req);
@@ -13,20 +13,16 @@ export const signUp: RequestHandler = async (req, res, next) => {
         return res.status(400).json({ errors: errors.array() });
     }
     
-    try {
-        const { username, email, password } = req.body;
-        const userExist: UserModel = await User.findOne({ email });
-        if (userExist) {
-            return res.status(401).json({ message: SIGN_UP_FAILED });
-        }
+    const { username, email, password } = req.body;
     
+    try {
         const hashPassword = await hash(password, 12);
         const newUser = await new User({ username, email, password: hashPassword });
         await newUser.save();
 
         const payload: JwtPayload = { id: newUser._id };
         const token = sign(payload, process.env.JWT_SECRET!);       
-        res.status(200).json(token);
+        res.status(200).json({ token, username });
     } catch (error) {
         next(error);
     }
@@ -52,7 +48,7 @@ export const signIn: RequestHandler = async (req, res, next) => {
 
         const payload: JwtPayload = { id: userExist._id };
         const token = sign(payload, process.env.JWT_SECRET!);
-        res.status(200).json(token);
+        res.status(200).json({ token, username: userExist.username });
     } catch (error) {
         next(error);
     }
@@ -64,9 +60,9 @@ export const emailCheck: RequestHandler = async (req, res, next) => {
     try {
         const userExist: UserModel = await User.findOne({ email });
         if (userExist) {
-            return res.status(401).json({ message: SIGN_IN_FAILED });
+            return res.status(401).json(true);
         }
-        res.status(200).json(true);
+        res.status(200).json(false);
     } catch (error) {
         next(error);
     }
